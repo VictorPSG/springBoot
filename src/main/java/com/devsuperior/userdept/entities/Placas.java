@@ -5,24 +5,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="tb_placas")
+@Table(name="tb_placa")
 public class Placas {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@OneToOne
-	@JoinColumn(name = "modulos_id")
-	private Modulos modulos;
-	
 	private float tensao;
 	private float corrente;
+	@ManyToOne
+	@JoinColumn(name = "modulos_id")
+	private Modulo modulos;
 	
 	
 	public long getId() {
@@ -31,10 +29,10 @@ public class Placas {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Modulos getModulos() {
+	public Modulo getModulos() {
 		return modulos;
 	}
-	public void setModulos(Modulos modulos) {
+	public void setModulos(Modulo modulos) {
 		this.modulos = modulos;
 	}
 	public float getTensao() {

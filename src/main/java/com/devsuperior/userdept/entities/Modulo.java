@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -14,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
-@Table(name="tb_modulos")
-public class Modulos {
+@Table(name="tb_modulo")
+public class Modulo {
 	
 	
 	@Id
@@ -29,7 +28,7 @@ public class Modulos {
 	@JsonIgnoreProperties("modulos")
 	private Usina usina;
 	
-	public Modulos() {
+	public Modulo() {
 		
 	}
 	

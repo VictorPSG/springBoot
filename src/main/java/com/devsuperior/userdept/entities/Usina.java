@@ -27,18 +27,18 @@ public class Usina {
 
 	@OneToMany(mappedBy = "usina", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usina")
-    private List<Modulos> modulos;
+    private List<Modulo> modulos;
 
 	public Usina() {
 		
 	}
 	
-	public List<Modulos> getModulos() {
+	public List<Modulo> getModulos() {
 		return modulos;
 	}
 
 
-	public void setModulos(List<Modulos> modulos) {
+	public void setModulos(List<Modulo> modulos) {
 		this.modulos = modulos;
 	}
 

@@ -11,40 +11,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsuperior.userdept.entities.Modulo;
-import com.devsuperior.userdept.repositories.ModuloRepository;
+import com.devsuperior.userdept.entities.Placas;
+import com.devsuperior.userdept.repositories.PlacaRepository;
 
 @RestController
-@RequestMapping(value = "/modulos")
-class ModuloController {
-	
-	@Autowired
-	private ModuloRepository repository;
+@RequestMapping(value = "placas")
+public class PlacaController {
 
+	@Autowired
+	PlacaRepository repository;
+	
 	@GetMapping
-	public List<Modulo> findAll(){
+	public List<Placas> findAll(){
 		return repository.findAll();
 	}
 	
 	@GetMapping(value="/{id}")
-	public Modulo findById(@PathVariable long id) {
+	public Placas findById(@PathVariable long id) {
 		return repository.findById(id).get();
-	}
+	}	
 	
 	@PostMapping
-	public Modulo insertUsina(@RequestBody Modulo modulo) {
-		return repository.save(modulo);
+	public Placas insertPlaca(@RequestBody Placas placa) {
+		return repository.save(placa);
 	}
+	
 	
 	@DeleteMapping(value = "/{id}")
 	public String deleteModulo(@PathVariable long id) {
 		if(repository.existsById(id)){
 			repository.deleteById(id);
 			return "Apagado com Sucesso!";
-		}else {
+		}
+		else {
 			return "ID:"+id+" não existe";
 		}
 	}
-	
-	
 }
